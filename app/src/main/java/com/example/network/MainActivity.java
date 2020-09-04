@@ -20,6 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivity extends AppCompatActivity {
     TextView tvDate, tvTitle, tvContent;
     ImageView ivCover;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Item> call, Response<Item> response) {
                 if (response.body() == null) {
-                    Log.d("MainActivity", "Failed");
+                    return;
                 }
                 Item model = response.body();
                 tvTitle.setText(model.getTitle());
